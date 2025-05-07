@@ -17,15 +17,11 @@
 package de.bypixeltv.redivelocity.utils;
 
 import de.vulpescloud.wrapper.Wrapper;
-import eu.cloudnetservice.driver.inject.InjectionLayer;
-import eu.cloudnetservice.wrapper.holder.ServiceInfoHolder;
 
 public class CloudUtils {
+
     public static String getServiceName(String cloud) {
-        if (cloud.equalsIgnoreCase("cloudnet")) {
-            final ServiceInfoHolder serviceInfoHolder = InjectionLayer.ext().instance(ServiceInfoHolder.class);
-            return serviceInfoHolder.serviceInfo().name();
-        } else if (cloud.equalsIgnoreCase("vulpescloud")) {
+        if (cloud.equalsIgnoreCase("vulpescloud")) {
             return Wrapper.instance.getServiceName();
         } else {
             return null;

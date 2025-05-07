@@ -43,7 +43,7 @@ public class MessageListener {
     }
 
     private void init() {
-        redisManager.subscribe(channels, (_, channel, msg) -> {
+        redisManager.subscribe(channels, (event, channel, msg) -> {
             if ("redivelocity-kick".equals(channel)) {
                 JSONObject message = new JSONObject(msg);
                 String messagesString = message.getString("messages");

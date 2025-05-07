@@ -87,7 +87,7 @@ public class RedisController extends BinaryJedisPubSub implements Runnable {
         isConnecting.set(true);
 
         CompletableFuture.runAsync(() -> {
-            try (var _ = jedisPool.getResource()) {
+            try (var resource  = jedisPool.getResource()) {
                 isConnectionBroken.set(false);
                 rediVelocityLogger.sendConsoleMessage("<green>Successfully connected to Redis server.</green>");
             } catch (Exception e) {

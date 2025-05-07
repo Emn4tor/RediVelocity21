@@ -44,12 +44,6 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.38")
     compileOnly("org.projectlombok:lombok:1.18.38")
 
-    // CloudNet
-    val cloudNetVersion = "4.0.0-RC11.1"
-    compileOnly("eu.cloudnetservice.cloudnet:driver:$cloudNetVersion")
-    compileOnly("eu.cloudnetservice.cloudnet:bridge:$cloudNetVersion")
-    compileOnly("eu.cloudnetservice.cloudnet:wrapper-jvm:$cloudNetVersion")
-
     compileOnly("org.geysermc.geyser:api:2.4.2-SNAPSHOT")
     compileOnly("org.geysermc.floodgate:api:2.2.3-SNAPSHOT")
 
@@ -66,14 +60,14 @@ sourceSets {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_23
-    targetCompatibility = JavaVersion.VERSION_23
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 tasks {
     compileJava {
         options.encoding = "UTF-8"
-        options.release.set(23)
+        options.release.set(21)
     }
 
     shadowJar {
